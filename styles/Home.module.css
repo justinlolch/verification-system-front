@@ -1,5 +1,19 @@
 .container {
-  padding: 0 2rem;
+  /* padding: 0 0rem; */
+  background-color: grey;
+}
+
+.header {
+  height: 8vh;
+  top: 0;
+  background-color: purple;
+  position: sticky;
+  font-size: 1.1rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .main {
