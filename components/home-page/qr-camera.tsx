@@ -9,30 +9,26 @@ export default function QRCamera() {
 
   const [result, setResult] = useState("No result");
 
-  const handleError = (err) => {
-    console.log(err);
-  };
-
-  const handleScan = (result) => {
-    console.log(result);
-    if (result) {
-      setResult(result);
-    }
-  };
-
   const previewStyle = {
     height: 240,
     width: 320,
   };
+
   return (
     <section className={classes.hero}>
       <div className={classes.image}>
-        <QrReader
-          delay={500}
-          style={previewStyle}
-          onError={handleError}
-          onScan={handleScan}
-        />
+      <QrReader
+        onResult={(result, error) => {
+          if (!!result) {
+            setData(result?.text);
+          }
+
+          if (!!error) {
+            console.info(error);
+          }
+        }}
+        style={{ width: '100%' }}
+      />
         <p>{data}</p>
       </div>
       <h1>Hi, I&quot;m Justin</h1>
