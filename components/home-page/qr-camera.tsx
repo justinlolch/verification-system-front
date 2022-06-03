@@ -20,6 +20,7 @@ export default function QRCamera() {
       <QrReader
       constraints={{ facingMode: 'environment' }}
         onResult={(result, error) => {
+          console.log(result)
           if (result) {
             setData(result);
           }
