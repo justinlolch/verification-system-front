@@ -1,7 +1,8 @@
 import classes from "../../styles/hero.module.css";
 import { useState } from "react";
-import dynamic from "next/dynamic";
-const QrReader = dynamic(() => import('react-qr-reader'), { ssr: false })
+import { QrReader } from "react-qr-reader";
+// import dynamic from "next/dynamic";
+// const QrReader = dynamic(() => import('react-qr-reader'), { ssr: false })
 
 export default function QRCamera() {
   const [data, setData] = useState("No result");
@@ -13,7 +14,7 @@ export default function QRCamera() {
   };
 
   const handleScan = (result) => {
-    console.log(result)
+    console.log(result);
     if (result) {
       setResult(result);
     }
