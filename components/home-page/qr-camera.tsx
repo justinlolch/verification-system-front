@@ -18,7 +18,7 @@ export default function QRCamera() {
     <section className={classes.hero}>
       <div className={classes.image}>
       <QrReader
-      constraints={{ facingMode: 'user' }}
+      constraints={{ facingMode: 'environment' }}
         onResult={(result, error) => {
           if (result) {
             setData(result);
@@ -33,6 +33,7 @@ export default function QRCamera() {
       </div>
       <h1>Hi, I&quot;m Justin</h1>
       <p>I blog about webdev, frontend, and backend development.</p>
+      <p>{data}</p>
     </section>
   );
 }
