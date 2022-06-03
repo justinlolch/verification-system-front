@@ -5,7 +5,7 @@ import { QrReader } from "react-qr-reader";
 // const QrReader = dynamic(() => import('react-qr-reader'), { ssr: false })
 
 export default function QRCamera() {
-  const [data, setData] = useState("No result");
+  const [data, setData] = useState<any>("No result");
 
   const [result, setResult] = useState("No result");
 
@@ -18,16 +18,16 @@ export default function QRCamera() {
     <section className={classes.hero}>
       <div className={classes.image}>
       <QrReader
+      constraints={{ facingMode: 'user' }}
         onResult={(result, error) => {
-          if (!!result) {
-            setData(result?.text);
+          if (result) {
+            setData(result);
           }
 
           if (!!error) {
             console.info(error);
           }
         }}
-        style={{ width: '100%' }}
       />
         <p>{data}</p>
       </div>
